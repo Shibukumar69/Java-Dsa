@@ -14,5 +14,9 @@ public class builtfun {
      System.out.println("The string you entered is: " + str1);
      String str2= sc.next();
      System.out.println("The string you entered is: " + str2);
+     String str3="   love  ";
+     System.out.println("The string after trimming is: " + str3.trim()); // to remove leading and trailing spaces
+     System.out.println("The string in uppercase is: " + str3.toUpperCase()); // to convert string to uppercase
+     System.out.println("The string in lowercase is: " + str3.toLowerCase()); // to convert string to lowercase
     }
 }
