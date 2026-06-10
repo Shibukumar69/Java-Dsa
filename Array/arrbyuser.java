@@ -8,6 +8,7 @@ public class arrbyuser {
         for(int i=0;i<arr.length;i++){
             arr[i]=sc.nextInt();
         }
+        sc.close();
         for(int i :arr){
             System.out.print(i + " ");
         }
