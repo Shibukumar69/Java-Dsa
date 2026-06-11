@@ -4,6 +4,8 @@ public class gcd {
     static int gcd(int a, int b) {
         while(b != 0) {
             // gcd(a,b)==> gcd(b,a%b);
+
+            // Lcm(a,b)==> lcm(a,b) = (a*b)/gcd(a,b);
             int temp = b;
             b = a % b;
             a = temp;
