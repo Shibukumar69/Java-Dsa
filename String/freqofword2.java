@@ -30,6 +30,7 @@ public class freqofword2 {
             }
 
             i = j;
+            
         }
 
         System.out.println("Maximum frequency character: " + maxChar);
