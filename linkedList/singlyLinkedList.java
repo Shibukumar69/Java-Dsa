@@ -136,7 +136,7 @@ public class singlyLinkedList {
 
      // update the value of a node at a specific index
      public void updateAtIndex(int position, int newData) {
-        if (position < 0 || position > size+1) {
+        if (position < 1 || position > size) {
             System.out.println("Invalid position");
             return;
         }
@@ -147,6 +147,61 @@ public class singlyLinkedList {
         temp.data = newData;
     }    
 
+    // delete head node
+    public void deleteAtFirst() {
+        if (head == null) {
+            System.out.println("Linked list is empty");
+            return;
+        }
+        head = head.next;
+        size--;
+        // agar head null ho jaye toh tail ko bhi null kar dena chahiye
+        if (head == null) {
+            tail = null;
+        }
+    }
+     // delete tail node
+    public void deleteAtLast() {
+        if (head == null) {
+            System.out.println("Linked list is empty");
+            return;
+        }
+        if (head==tail) {
+            head = null;
+            tail = null;
+            size--;
+            return;
+        }
+        Node temp = head;
+      for (int i = 1; i <= size - 2; i++) {
+            temp = temp.next;
+        }
+        temp.next = null;
+        tail = temp;
+        size--;
+    }
+
+    // delete node at a specific index
+    public void deleteAtIndex(int index) {
+        if (index < 0 || index >= size+1) {
+            System.out.println("Invalid index");
+            return;
+        }
+        if (index == 1) {
+            deleteAtFirst();
+            return;
+        }
+        if (index == size ) {
+            deleteAtLast();
+            return;
+        }
+        Node prev = head;
+        for (int i = 0; i <= index - 2; i++) {
+            prev = prev.next;
+        }
+        prev.next = prev.next.next;
+        size--;
+    }
     public static void main(String[] args) {
         singlyLinkedList mylist = new singlyLinkedList();
         if (mylist.isEmpty()) {
