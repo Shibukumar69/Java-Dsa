@@ -87,4 +87,86 @@ public class doublyLinkedList {
         size++;
         
     }
+/// searching
+    public void search(int data) {
+        Node temp = head;
+        int pos = 1;
+        while (temp != null) {
+            if (temp.data == data) {
+                System.out.println("Element found at position: " + pos);
+                return;
+            }
+            temp = temp.next;
+            pos++;
+        }
+        System.out.println("Element not found");
+    }
+
+
+
+
+    public void print() {
+        if (head == null) {
+            System.out.println("Linked list is empty");
+            return;
+        }
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + "->");
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+  // deleting at first
+    public void deleteAtFirst() {
+        if (head == null) {
+            System.out.println("Linked list is empty");
+            return;
+        }
+        if (head == tail) {
+            head = null;
+            tail = null;
+            size=0;
+            return;
+        } 
+            head = head.next;
+            head.prev = null;
+        
+        size--;
+    }
+
+    // deleting at last
+    public void deleteAtLast() {
+        if (head == null) {
+            System.out.println("Linked list is empty");
+            return;
+        }
+        if (head == tail) {
+            head = null;
+            tail = null;
+            size=0;
+            return;
+        } 
+            tail = tail.prev;
+            tail.next = null;
+        
+        size--;
+    }
+    public static void main(String[] args) {
+        doublyLinkedList mylist = new doublyLinkedList();
+        mylist.insertAtFirst(10);
+        mylist.insertAtLast(20);
+        mylist.insertAtIndex(2, 15);
+        mylist.print(); // Output: 10->15->20->
+        mylist.search(15); // Output: Element found at position: 2
+        mylist.search(25); // Output: Element not found
+        mylist.deleteAtFirst();
+        mylist.print(); // Output: 15->20->
+        mylist.deleteAtLast();
+        mylist.print(); // Output: 15->
+        mylist.deleteAtLast();
+        mylist.print(); // Output: Linked list is empty
+        mylist.deleteAtFirst(); // Output: Linked list is empty
+    }
+
 }
