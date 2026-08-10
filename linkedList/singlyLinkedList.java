@@ -107,6 +107,45 @@ public class singlyLinkedList {
         tail = null;
         size = 0;
     }
+    // searching in linked list
+    public boolean search(int target) {
+        Node temp = head;
+        while (temp != null) {
+            if (temp.data == target) {
+                return true;
+            }
+            temp = temp.next;
+        }
+        return false;
+    }
+
+    // finding the index of target in linked list
+     public int findPostion(int target){
+        Node temp=head;
+        int position=1;
+        while(temp!=null){
+            if(temp.data==target){
+                return position;
+            } else{
+                temp=temp.next;
+                position++;
+            }
+        }
+        return -1;
+     }
+
+     // update the value of a node at a specific index
+     public void updateAtIndex(int position, int newData) {
+        if (position < 0 || position > size+1) {
+            System.out.println("Invalid position");
+            return;
+        }
+        Node temp = head;
+        for (int i = 0; i <=position-1; i++) {
+            temp = temp.next;
+        }
+        temp.data = newData;
+    }    
 
     public static void main(String[] args) {
         singlyLinkedList mylist = new singlyLinkedList();
@@ -128,9 +167,13 @@ public class singlyLinkedList {
         mylist.print();
         System.out.println("Size of linked list: " + mylist.getSize());
         System.out.println("Is linked list empty? " + mylist.isEmpty());
-        mylist.clear();
-        System.out.println("After clearing the linked list:");
+        // mylist.clear();
+        // System.out.println("After clearing the linked list:");
+        // mylist.print();
         mylist.print();
+        System.out.println("Searching for 3 in linked list: " + mylist.search(3)); 
+        System.out.println("Searching for 3 in linked list: " + mylist.findPostion(3));
+        System.out.println("Searching for 6 in linked list: " + mylist.findPostion(6));
     }
 
 }
