@@ -81,4 +81,33 @@ class Node{
         }
        return Math.max(root.val,Math.max(max(root.left),max(root.right)));
      }
+      // preorder traversal of the tree
+      private static void preorder(Node root){
+        if(root==null){
+            return;
+        }
+        System.out.print(root.val+" "); // root
+        preorder(root.left);            //left
+        preorder(root.right);           //right
+      }
+
+      // inorder traversal of the tree
+      private static void inorder(Node root){
+        if(root==null){
+            return;
+        }
+        inorder(root.left);            //left
+        System.out.print(root.val+" "); // root
+        inorder(root.right);           //right
+      }
+
+      // postorder traversal of the tree
+      private static void postorder(Node root){
+        if(root==null){
+            return;
+        }
+        postorder(root.left);            //left
+        postorder(root.right);           //right
+        System.out.print(root.val+" "); // root
+      }
 }
