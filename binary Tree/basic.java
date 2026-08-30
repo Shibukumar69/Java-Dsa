@@ -28,7 +28,7 @@ class Node{
     d.left=h;
     d.right=i;
     e.left=j;
-    display(a);
+    breadthFirst(a);
     System.out.println();
     System.out.println("size of the tree is "+size(a));
     System.out.println("sum of the tree is "+sum(a));
@@ -109,5 +109,24 @@ class Node{
         postorder(root.left);            //left
         postorder(root.right);           //right
         System.out.print(root.val+" "); // root
+      }
+      //breadth first traversal of the tree
+      // level order traversal of the tree
+      private static void breadthFirst(Node root){
+        if(root==null){
+            return;
+        }
+        Queue<Node> q=new LinkedList<>();
+        q.add(root);
+        while(!q.isEmpty()){
+            Node front=q.remove();
+            System.out.print(front.val+" ");
+            if(front.left!=null){
+                q.add(front.left);
+            }
+            if(front.right!=null){
+                q.add(front.right);
+            }
+        }
       }
 }
