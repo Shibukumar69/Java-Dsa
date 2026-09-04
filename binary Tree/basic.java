@@ -129,4 +129,12 @@ class Node{
             }
         }
       }
+      public static int heigth(Node root){
+        if(root==null){
+            return 0;
+        }
+        int leftHeight=heigth(root.left);
+        int rightHeight=heigth(root.right);
+        return Math.max(leftHeight,rightHeight)+1;
+      }
 }
