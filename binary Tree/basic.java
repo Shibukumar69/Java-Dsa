@@ -133,6 +133,9 @@ class Node{
         if(root==null){
             return 0;
         }
+        if(root.left==null && root.right==null){
+            return 0;
+        }
         int leftHeight=heigth(root.left);
         int rightHeight=heigth(root.right);
         return Math.max(leftHeight,rightHeight)+1;
