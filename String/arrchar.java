@@ -6,6 +6,7 @@ public class arrchar {
         }
         System.out.println();
         for(char ele:arr){
+            
             System.out.print(ele+" ");
         }
     }
